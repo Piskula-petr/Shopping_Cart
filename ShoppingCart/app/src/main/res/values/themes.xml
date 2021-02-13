@@ -1,0 +1,37 @@
+<resources>
+
+    <style name="Theme.ShoppingCart" parent="Theme.AppCompat.Light" >
+
+        <!-- Reference -->
+        <item name="actionBarTheme">@style/ActionBar</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowToggle</item>
+
+        <!-- Hlavní barvy -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primaryLight</item>
+        <item name="colorOnPrimary">@color/text</item>
+
+        <!-- Vedlejší barvy -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondaryLight</item>
+        <item name="colorOnSecondary">@color/text</item>
+    </style>
+
+    <!-- Panel akcí -->
+    <style name="ActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">@color/text</item>
+        <item name="colorControlNormal">@color/text</item>
+    </style>
+
+    <!-- Tlačítko pro zobrazení / skrytí navigačního menu -->
+    <style name="DrawerArrowToggle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/text</item>
+    </style>
+
+    <!-- Navigační menu -->
+    <style name="NavigationDrawerStyle">
+        <item name="android:textSize">18dp</item>
+        <item name="itemTextColor">@color/text</item>
+    </style>
+
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cz.shopping_cart">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ShoppingCart">
+
+        <!-- Úvodní logo -->
+        <activity android:name=".activities.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Vytvoření / úprava seznamu -->
+        <activity
+            android:name=".activities.ListFormActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- Náhled seznamu -->
+        <activity android:name=".activities.ListPreviewActivity" />
+
+        <!-- Seznamy -->
+        <activity android:name=".activities.ListsActivity" />
+
+        <!-- Produkty -->
+        <activity android:name=".activities.ProductsActivity" />
+
+    </application>
+
+</manifest>

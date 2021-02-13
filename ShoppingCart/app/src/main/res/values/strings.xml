@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">ShoppingCart</string>
+
+    <string name="open">Otevřít</string>
+    <string name="close">Zavřít</string>
+
+</resources>
