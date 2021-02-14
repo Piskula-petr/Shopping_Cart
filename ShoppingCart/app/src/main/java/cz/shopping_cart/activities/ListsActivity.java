@@ -60,7 +60,7 @@ public class ListsActivity extends AppCompatActivity {
 						// Smazání položek v seznamu + smazání seznamu
 						boolean result = databaseHelper.deleteListById(lists.get(listIndex).getId());
 						
-						if (result) Toast.makeText(ListsActivity.this, "Seznam byl odstraněn z databáze", Toast.LENGTH_LONG).show();
+						if (result) Toast.makeText(ListsActivity.this, getString(R.string.list_delete_dialog), Toast.LENGTH_LONG).show();
 						
 						// Odstranění seznamu
 						lists.remove(listIndex);
@@ -134,7 +134,7 @@ public class ListsActivity extends AppCompatActivity {
 				
 				// Nastavení panelu akcí
 				getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-				getSupportActionBar().setTitle("Seznamy");
+				getSupportActionBar().setTitle(getString(R.string.lists));
 				
 				textViewListsEmpty = findViewById(R.id.textViewListsEmpty);
 				

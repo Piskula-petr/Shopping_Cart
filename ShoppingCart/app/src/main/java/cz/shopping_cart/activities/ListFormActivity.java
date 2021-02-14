@@ -174,7 +174,7 @@ public class ListFormActivity extends AppCompatActivity {
 				
 				// Nastavení panelu akcí
 				getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-				getSupportActionBar().setTitle((listModification) ? "Úprava seznamu" : "Nový seznam");
+				getSupportActionBar().setTitle((listModification) ? getString(R.string.edit_list) : getString(R.string.new_list));
 				getSupportActionBar().setDisplayShowCustomEnabled(true);
 				
 				// Obrázek pro potvrzení seznamu
@@ -361,7 +361,7 @@ public class ListFormActivity extends AppCompatActivity {
 						
 						boolean result = databaseHelper.updateList(listID, editTextListName, productsRemoved, productsAdded);
 						
-						if (result) Toast.makeText(ListFormActivity.this, "Seznam byl aktualizován", Toast.LENGTH_LONG).show();
+						if (result) Toast.makeText(ListFormActivity.this, getString(R.string.list_updated), Toast.LENGTH_LONG).show();
 						
 						// Odstranění prázdných seznamů, pokud při změně byly odstraněny všechny produkty
 						databaseHelper.deleteEmptyLists();
@@ -375,7 +375,7 @@ public class ListFormActivity extends AppCompatActivity {
 								
 								boolean result = databaseHelper.addList(editTextListName, products);
 								
-								if (result) Toast.makeText(ListFormActivity.this, "Seznam byl uložen do databáze", Toast.LENGTH_LONG).show();
+								if (result) Toast.makeText(ListFormActivity.this, getString(R.string.list_saved), Toast.LENGTH_LONG).show();
 								
 								Intent listPreview = new Intent(ListFormActivity.this, ListPreviewActivity.class);
 								listPreview.putExtra("listName", editTextListName);
@@ -460,7 +460,7 @@ public class ListFormActivity extends AppCompatActivity {
 						
 								productID = databaseHelper.getProductIdByName(product.getName());
 								
-						} else Toast.makeText(ListFormActivity.this, "Produkt byl uložen do databáze", Toast.LENGTH_LONG).show();
+						} else Toast.makeText(ListFormActivity.this, getString(R.string.product_saved), Toast.LENGTH_LONG).show();
 						
 						// Nastavení ID produktu
 						products.get(products.size() - 1).setId(productID);

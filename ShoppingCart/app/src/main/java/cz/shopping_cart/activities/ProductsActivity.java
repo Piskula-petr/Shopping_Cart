@@ -66,10 +66,7 @@ public class ProductsActivity extends AppCompatActivity {
 						// Produkt je součástí seznamu
 						if (listNames.size() > 0) {
 								
-								String message = "Tento produkt je součástí " +
-										(listNames.size() == 1
-												? "seznamu"
-												: "seznamů") +" \n\n";
+								String message = getResources().getQuantityString(R.plurals.warning_dialog, listNames.size());
 								
 								// Přidání názvů seznamů do zprávy
 								for (ListName listName : listNames) {
@@ -78,15 +75,10 @@ public class ProductsActivity extends AppCompatActivity {
 								
 								// Vytvoření dialogu
 								AlertDialog.Builder builder = new AlertDialog.Builder(ProductsActivity.this);
-								builder.setTitle("Upozornění");
+								builder.setTitle(getString(R.string.warning));
 								builder.setCancelable(false);
-								
-								builder.setMessage(message + "\nze " +
-										(listNames.size() == 1
-												? "kterého"
-												: "kterých") + " bude odstraněn.");
-								
-								builder.setPositiveButton("Potvrdit", new DialogInterface.OnClickListener() {
+								builder.setMessage(message + getResources().getQuantityString(R.plurals.warning_dialog_confirmation, listNames.size()));
+								builder.setPositiveButton(getString(R.string.confirm), new DialogInterface.OnClickListener() {
 										
 										@Override
 										public void onClick(DialogInterface dialog, int which) {
@@ -94,10 +86,7 @@ public class ProductsActivity extends AppCompatActivity {
 												// Smazání produktu ze všech seznamů + smazání produktu z databáze
 												boolean result = databaseHelper.deleteProductFromListsById(productID);
 												
-												if (result) Toast.makeText(ProductsActivity.this, "Produkt byl odstraněn ze " +
-														(listNames.size() == 1
-																? "seznamu"
-																: "seznamů") + ", i z databáze", Toast.LENGTH_LONG).show();
+												if (result) Toast.makeText(ProductsActivity.this, getResources().getQuantityText(R.plurals.delete_dialog, listNames.size()), Toast.LENGTH_LONG).show();
 												
 												// Smazání prázdných seznamů
 												databaseHelper.deleteEmptyLists();
@@ -105,11 +94,17 @@ public class ProductsActivity extends AppCompatActivity {
 												// Odstranění produktu
 												productNames.remove(productIndex);
 												
+												// Zobrazení zprávy, při odstranění všech produktů
+												if (productNames.size() == 0) {
+														
+														textViewProductsEmpty.setVisibility(View.VISIBLE);
+												}
+												
 												productsRecyclerViewAdapter.notifyItemRemoved(productIndex);
 										}
 								});
 								
-								builder.setNegativeButton("Zrušit", new DialogInterface.OnClickListener() {
+								builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
 										
 										@Override
 										public void onClick(DialogInterface dialog, int which) {
@@ -131,18 +126,18 @@ public class ProductsActivity extends AppCompatActivity {
 								// Smazání produktu z databáze
 								boolean result = databaseHelper.deleteProductById(productID);
 								
-								if (result) Toast.makeText(ProductsActivity.this, "Produkt byl odstraněn z databáze", Toast.LENGTH_LONG).show();
+								if (result) Toast.makeText(ProductsActivity.this, getString(R.string.product_delete_dialog), Toast.LENGTH_LONG).show();
 								
 								// Odstranění produktu
 								productNames.remove(productIndex);
 								
-								productsRecyclerViewAdapter.notifyItemRemoved(productIndex);
-						}
-						
-						// Zobrazení zprávy, při odstranění všech produktů
-						if (productNames.size() == 0) {
+								// Zobrazení zprávy, při odstranění všech produktů
+								if (productNames.size() == 0) {
+										
+										textViewProductsEmpty.setVisibility(View.VISIBLE);
+								}
 								
-								textViewProductsEmpty.setVisibility(View.VISIBLE);
+								productsRecyclerViewAdapter.notifyItemRemoved(productIndex);
 						}
 				}
 		};
@@ -206,7 +201,7 @@ public class ProductsActivity extends AppCompatActivity {
 				
 				// Nastavení panelu akcí
 				getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-				getSupportActionBar().setTitle("Produkty");
+				getSupportActionBar().setTitle(getString(R.string.products));
 				
 				textViewProductsEmpty = findViewById(R.id.textViewProductsEmpty);
 				

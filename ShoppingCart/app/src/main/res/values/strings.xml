@@ -2,7 +2,39 @@
 
     <string name="app_name">ShoppingCart</string>
 
+    <!-- ListFormActivity -->
     <string name="open">Otevřít</string>
     <string name="close">Zavřít</string>
+    <string name="edit_list">Úprava seznamu</string>
+    <string name="new_list">Nový seznam</string>
+    <string name="list_updated">Seznam byl aktualizován</string>
+    <string name="list_saved">Seznam byl uložen do databáze</string>
+    <string name="product_saved">Produkt byl uložen do databáze</string>
+
+    <!-- ProductsActivity -->
+    <plurals name="warning_dialog">
+        <item quantity="one">Tento produkt je součástí seznamu: \n\n</item>
+        <item quantity="other">Tento produkt je součástí seznamů: \n\n</item>
+    </plurals>
+
+    <plurals name="warning_dialog_confirmation">
+        <item quantity="one">\nPotvrzením bude z tohoto seznamu odstraněn</item>
+        <item quantity="other">\nPotvrzením bude ze všech seznamů odstraněn</item>
+    </plurals>
+
+    <plurals name="delete_dialog">
+        <item quantity="one">Produkt byl odstraněn ze \nseznamu a databáze</item>
+        <item quantity="other">Produkt byl odstraněn ze \nvšech seznamů a databáze</item>
+    </plurals>
+
+    <string name="warning">Upozornění</string>
+    <string name="confirm">Potvrdit</string>
+    <string name="cancel">Zrušit</string>
+    <string name="product_delete_dialog">Produkt byl odstraněn z databáze</string>
+    <string name="products">Produkty</string>
+
+    <!-- ListsActivity -->
+    <string name="list_delete_dialog">Seznam byl odstraněn z databáze</string>
+    <string name="lists">Seznamy</string>
 
 </resources>
